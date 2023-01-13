@@ -1,4 +1,4 @@
-import { DEFAULT_OPTIONS } from '../defaultOptions';
+import { OPTIONS } from '../options';
 
 const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
@@ -9,10 +9,7 @@ const dateOptions = {
 };
 
 const setDate = () => {
-  const curDate = new Date().toLocaleDateString(
-    DEFAULT_OPTIONS.lang,
-    dateOptions
-  );
+  const curDate = new Date().toLocaleDateString(OPTIONS.lang, dateOptions);
   dateEl.textContent = curDate;
 };
 

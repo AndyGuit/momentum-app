@@ -1,12 +1,12 @@
-import { DEFAULT_OPTIONS } from '../defaultOptions';
+import { OPTIONS } from '../options';
 import { translations } from '../translations';
 
 const greetingEl = document.querySelector('.greeting');
 const nameInput = document.querySelector('input.name');
 
-const setGreeting = () => {
-  const { lang } = DEFAULT_OPTIONS;
+const { lang } = OPTIONS;
 
+const setGreeting = () => {
   const curTime = new Date().getHours();
   const timeIndex = Math.floor(curTime / 6);
 
@@ -15,14 +15,18 @@ const setGreeting = () => {
   setTimeout(setGreeting, 1000);
 };
 
-const setName = () => {
-  const { lang, name } = DEFAULT_OPTIONS;
-
+const setName = name => {
   nameInput.placeholder = translations.namePlaceholder[lang];
   nameInput.value = name;
 };
 
+nameInput.addEventListener('input', e => {
+  const name = e.target.value;
+  setName(name);
+  localStorage.setItem('name', name);
+});
+
 export const Greeting = () => {
   setGreeting();
-  setName();
+  setName(OPTIONS.name);
 };
