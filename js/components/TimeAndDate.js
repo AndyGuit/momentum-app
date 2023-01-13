@@ -8,18 +8,18 @@ const dateOptions = {
   day: 'numeric',
 };
 
-const tickClock = () => {
-  const curTime = new Date().toLocaleTimeString();
-  timeEl.textContent = curTime;
-  setInterval(tickClock, 1000);
-};
-
 const setDate = () => {
   const curDate = new Date().toLocaleDateString(
     DEFAULT_OPTIONS.lang,
     dateOptions
   );
   dateEl.textContent = curDate;
+};
+
+const tickClock = () => {
+  const curTime = new Date().toLocaleTimeString();
+  timeEl.textContent = curTime;
+  setTimeout(tickClock, 1000);
 };
 
 export const TimeAndDate = () => {
