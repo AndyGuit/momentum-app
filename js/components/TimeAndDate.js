@@ -19,10 +19,10 @@ const setDate = () => {
 const tickClock = () => {
   const curTime = new Date().toLocaleTimeString();
   timeEl.textContent = curTime;
+  setDate();
   setTimeout(tickClock, 1000);
 };
 
 export const TimeAndDate = () => {
   tickClock();
-  setDate();
 };
