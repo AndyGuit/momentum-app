@@ -1,15 +1,11 @@
 import { OPTIONS } from '../options';
 import { translations } from '../translations';
+import { getTimeIndex } from '../helperFunctions';
 
 const greetingEl = document.querySelector('.greeting');
 const nameInput = document.querySelector('input.name');
 
 const { lang } = OPTIONS;
-
-export const getTimeIndex = () => {
-  const curTime = new Date().getHours();
-  return Math.floor(curTime / 6);
-};
 
 const setGreeting = () => {
   const timeIndex = getTimeIndex();

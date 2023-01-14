@@ -1,6 +1,6 @@
 import { OPTIONS } from '../options';
 import { translations } from '../translations';
-import { getTimeIndex } from '../components/Greeting';
+import { getTimeIndex } from '../helperFunctions';
 import { getGithubImg } from '../apiLinks';
 
 const slideNext = document.querySelector('.slide-next');
