@@ -5,8 +5,10 @@ export const getTimeIndex = () => {
 
 export const debouncer = (func, wait) => {
   let timer;
-  return () => {
+  return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(func, wait);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, wait);
   };
 };

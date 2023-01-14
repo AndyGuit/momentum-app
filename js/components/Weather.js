@@ -44,7 +44,7 @@ const fetchWeatherData = async city => {
   }
 };
 
-const weatherFunc = () => {
+const weatherFunc = e => {
   fetchWeatherData(e.target.value);
   OPTIONS.city = e.target.value;
   saveOptions();
