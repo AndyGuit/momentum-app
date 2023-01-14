@@ -1,6 +1,7 @@
 import { getWeatherLink } from '../apiLinks';
 import { OPTIONS, saveOptions } from '../options';
 import { translations } from '../translations';
+import { debouncer } from '../helperFunctions';
 
 const icon = document.querySelector('.weather-icon');
 const desc = document.querySelector('.weather-description');
@@ -43,12 +44,13 @@ const fetchWeatherData = async city => {
   }
 };
 
-city.addEventListener('input', e => {
-  // TODO: Debounce
+const weatherFunc = () => {
   fetchWeatherData(e.target.value);
   OPTIONS.city = e.target.value;
   saveOptions();
-});
+};
+
+city.addEventListener('input', debouncer(weatherFunc, 600));
 
 export const Weather = () => {
   fetchWeatherData(OPTIONS.city);
