@@ -6,9 +6,13 @@ const nameInput = document.querySelector('input.name');
 
 const { lang } = OPTIONS;
 
-const setGreeting = () => {
+export const getTimeIndex = () => {
   const curTime = new Date().getHours();
-  const timeIndex = Math.floor(curTime / 6);
+  return Math.floor(curTime / 6);
+};
+
+const setGreeting = () => {
+  const timeIndex = getTimeIndex();
 
   greetingEl.textContent = translations.greeting[lang][timeIndex];
 

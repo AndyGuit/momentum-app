@@ -15,3 +15,9 @@ export const OPTIONS = {
     }
   });
 })();
+
+export const saveOptions = () => {
+  Object.keys(OPTIONS).forEach(key => {
+    localStorage.setItem(key, OPTIONS[key]);
+  });
+};
