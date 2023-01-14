@@ -1,6 +1,6 @@
 export const OPTIONS = {
   name: '',
-  city: '',
+  city: 'Kyiv',
   lang: 'en',
   picSource: 'github',
   hiddenBlocks: [],

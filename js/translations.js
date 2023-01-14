@@ -7,4 +7,20 @@ export const translations = {
     en: '[Enter Name]',
     ua: "[Введіть Ім'я]",
   },
+  weatherError: {
+    en: 'Oops... something went wrong, or you entered an incorrect value.',
+    ua: 'Упс... щось пішло не так, або ви ввели невірне значення.',
+  },
+  humidity: {
+    en: 'Humidity',
+    ua: 'Вологість',
+  },
+  wind: {
+    en: 'Wind Speed',
+    ua: 'Швидкість вітру',
+  },
+  windValue: {
+    en: 'm/s',
+    ua: 'м/с',
+  },
 };
