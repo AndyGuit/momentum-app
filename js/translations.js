@@ -23,4 +23,12 @@ export const translations = {
     en: 'm/s',
     ua: 'м/с',
   },
+  quoteError: {
+    en: "Couldn't get quote",
+    ua: 'Не вдалося завантажити цитату',
+  },
+  quoteUnknownAuthor: {
+    en: 'Unknown Author',
+    ua: 'Автор невідомий',
+  },
 };
