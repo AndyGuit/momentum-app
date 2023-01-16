@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/favicon.ico" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="css/owfont-regular.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>momentum</title>
@@ -12,9 +15,20 @@
     <header class="header">
       <div class="player">
         <div class="player-controls">
-          <button class="play-prev player-icon"></button>
-          <button class="play player-icon"></button>
-          <button class="play-next player-icon"></button>
+          <div class="player__buttons">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+          </div>
+          <div class="progress">
+            <span class="track-time">00:00 / 00:00</span>
+            <input type="range" min="0" max="100" step="1" value="0" />
+            <span class="track-name"></span>
+          </div>
+          <div class="volume">
+            <button class="fas fa-volume-up"></button>
+            <input type="range" min="0" max="1" step="0.01" value="0.8" />
+          </div>
         </div>
         <ul class="play-list"></ul>
       </div>

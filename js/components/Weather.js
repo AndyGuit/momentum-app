@@ -11,6 +11,9 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector('input.city');
 
+// Display saved city to input field
+city.value = OPTIONS.city;
+
 const renderWeather = data => {
   errorMsg.textContent = '';
   icon.className = `weather-icon owf owf-${data.weather[0].id}`;
