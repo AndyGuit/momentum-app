@@ -10,9 +10,11 @@ export const OPTIONS = {
 (function loadOptions() {
   Object.keys(OPTIONS).forEach(key => {
     const item = localStorage.getItem(key);
-    if (item) {
-      OPTIONS[key] = item;
-    }
+    const isArray = Array.isArray(OPTIONS[key]);
+
+    if (item && !isArray) OPTIONS[key] = item;
+
+    if (isArray) OPTIONS[key] = item.split(',');
   });
 })();
 

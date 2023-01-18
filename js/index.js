@@ -4,6 +4,7 @@ import { SliderBackground } from './components/SliderBackground';
 import { Weather } from './components/Weather';
 import { Quote } from './components/Quote';
 import { AudioPlayer } from './components/AudioPlayer';
+import { ToDo } from './components/ToDo';
 
 TimeAndDate();
 Greeting();
@@ -11,3 +12,4 @@ SliderBackground();
 Weather();
 Quote();
 AudioPlayer();
+ToDo();
