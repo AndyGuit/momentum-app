@@ -1,10 +1,12 @@
 import { OPTIONS, saveOptions } from '../options';
+import { translations } from '../translations';
 
 const toggleListBtn = document.querySelector('.todo-list__icon');
 const todoBlock = document.querySelector('.todo-list__block');
 const input = document.querySelector('.todo-list__input input');
 const addTodoBtn = document.querySelector('.todo-list__input button');
 const todoList = document.querySelector('.todo-list__list');
+const todoAppName = document.querySelector('.todo-list__icon span');
 
 const renderListItem = (item, id) => {
   const li = `
@@ -78,5 +80,6 @@ addTodoBtn.addEventListener('click', addItemToList);
 document.body.addEventListener('click', closeTodoBlock);
 
 export const ToDo = () => {
+  todoAppName.textContent = translations.todo[OPTIONS.lang];
   renderList();
 };

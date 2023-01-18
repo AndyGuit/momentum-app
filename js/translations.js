@@ -31,4 +31,8 @@ export const translations = {
     en: 'Unknown Author',
     ua: 'Автор невідомий',
   },
+  todo: {
+    en: 'Todo',
+    ua: 'Задачі',
+  },
 };
