@@ -1,4 +1,5 @@
 import { OPTIONS, saveOptions } from '../options';
+import { translations } from '../translations';
 import { TimeAndDate } from './TimeAndDate';
 import { Greeting } from './Greeting';
 import { Weather } from './Weather';
@@ -29,6 +30,31 @@ const initSettings = () => {
   }
 };
 
+const translateSettings = () => {
+  const t = translations.settings;
+
+  const languageText = document.querySelector('.language p');
+  const picSourceText = document.querySelector('.picture__options p');
+  const tagHeader = document.querySelector('.picture__tags-header p');
+  const tagDesc = document.querySelector('.picture__tags > p');
+  const settingsHeader = document.querySelector('.settings-header');
+  const blockNames = hideBlocks.querySelectorAll('label');
+
+  languageText.textContent = t.language[OPTIONS.lang];
+  picSourceText.textContent = t.picSource[OPTIONS.lang];
+  tagHeader.textContent = t.tagHeader[OPTIONS.lang];
+  tagDesc.innerHTML = t.tagDesc[OPTIONS.lang];
+  settingsHeader.textContent = t.header[OPTIONS.lang];
+
+  blockNames.forEach(block => {
+    const blockEl = document.querySelector(`label[for="${block.htmlFor}"]`);
+    const blockTranslation = t.blockNames[block.htmlFor];
+    blockEl.textContent = blockTranslation[OPTIONS.lang];
+  });
+};
+
+translateSettings();
+
 const toggleSettings = () => {
   settingsBlock.classList.toggle('show-settings');
   settingsIcon.classList.toggle('active-icon');
@@ -44,6 +70,7 @@ const closeSettingsBlock = e => {
 const changeLanguage = e => {
   OPTIONS.lang = e.target.value;
   saveOptions();
+  translateSettings();
   TimeAndDate();
   Greeting();
   Weather();
