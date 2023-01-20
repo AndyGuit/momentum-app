@@ -57,10 +57,12 @@
       </div>
     </main>
     <footer class="footer">
-      <button class="change-quote"></button>
-      <div>
-        <div class="quote"></div>
-        <div class="author"></div>
+      <div class="quote-container">
+        <button class="change-quote"></button>
+        <div>
+          <div class="quote"></div>
+          <div class="author"></div>
+        </div>
       </div>
       <div class="todo-list">
         <div class="todo-list__block">
@@ -74,6 +76,88 @@
         <div class="todo-list__icon">
           <i class="fas fa-list-alt"></i> <span></span>
         </div>
+      </div>
+      <div class="settings">
+        <div class="settings__block show-settings">
+          <div class="language">
+            <p>Choose Language</p>
+            <select>
+              <option value="en">EN</option>
+              <option value="ua">UA</option>
+            </select>
+          </div>
+          <div class="picture">
+            <div class="picture__options">
+              <p>Choose Picture Source</p>
+              <select>
+                <option value="github">Github</option>
+                <option value="unsplash">Unsplash</option>
+                <option value="flickr">Flickr</option>
+              </select>
+            </div>
+            <div class="picture__tags">
+              <div class="picture__tags-header">
+                <img src="assets/svg/tag.svg" alt="tag-icon" />
+                <p>Tags</p>
+              </div>
+              <p>Press enter to add tag</p>
+              <p>(Unsplash or Flickr only)</p>
+              <ul>
+                <input type="text" name="" id="" />
+              </ul>
+            </div>
+          </div>
+          <p class="settings-header">Show</p>
+          <div class="hide-blocks">
+            <div class="player-block">
+              <input
+                type="checkbox"
+                id="player"
+                data-block-name="player"
+                checked /><label for="player">Player</label>
+            </div>
+            <div class="weather-block">
+              <input
+                type="checkbox"
+                id="weather"
+                data-block-name="weather"
+                checked /><label for="weather">Weather</label>
+            </div>
+            <div class="quote-block">
+              <input
+                type="checkbox"
+                id="quote"
+                data-block-name="quote-container"
+                checked />
+              <label for="quote">Quote</label>
+            </div>
+            <div class="date-block">
+              <input type="checkbox" id="date" data-block-name="date" checked />
+              <label for="date">Date</label>
+            </div>
+            <div class="time-block">
+              <input type="checkbox" id="time" data-block-name="time" checked />
+              <label for="time">Time</label>
+            </div>
+            <div class="greeting-block">
+              <input
+                type="checkbox"
+                id="greeting"
+                data-block-name="greeting-container"
+                checked />
+              <label for="greeting">Greeting</label>
+            </div>
+            <div class="todo-list-block">
+              <input
+                type="checkbox"
+                id="todo-list"
+                data-block-name="todo-list"
+                checked />
+              <label for="todo-list">Todo</label>
+            </div>
+          </div>
+        </div>
+        <i class="fas fa-cog"></i>
       </div>
     </footer>
     <script src="js/index.js"></script>

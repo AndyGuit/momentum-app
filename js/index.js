@@ -5,6 +5,7 @@ import { Weather } from './components/Weather';
 import { Quote } from './components/Quote';
 import { AudioPlayer } from './components/AudioPlayer';
 import { ToDo } from './components/ToDo';
+import { Settings } from './components/Settings';
 
 TimeAndDate();
 Greeting();
@@ -13,3 +14,4 @@ Weather();
 Quote();
 AudioPlayer();
 ToDo();
+Settings();

@@ -38,6 +38,7 @@ const playList = [
 audio.src = playList[currentTrack].src;
 
 const renderPlaylist = () => {
+  playListEl.innerHTML = '';
   playList.forEach((item, index) => {
     const li = document.createElement('li');
     const icon = document.createElement('i');
