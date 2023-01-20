@@ -14,7 +14,7 @@ export const OPTIONS = {
 
     if (item && !isArray) OPTIONS[key] = item;
 
-    if (isArray) OPTIONS[key] = item.split(',');
+    if (isArray && item) OPTIONS[key] = item.split(',');
   });
 })();
 

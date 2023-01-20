@@ -17,6 +17,16 @@ const hideBlockInputs = document.querySelectorAll('.hide-blocks input');
 const initSettings = () => {
   langSelect.value = OPTIONS.lang;
   picOptions.value = OPTIONS.picSource;
+
+  if (OPTIONS.hiddenBlocks.length) {
+    OPTIONS.hiddenBlocks.forEach(blockName => {
+      const input = document.querySelector(`[data-block-name="${blockName}"]`);
+      const el = document.querySelector(`.${blockName}`);
+
+      input.checked = false;
+      el.classList.add('hide-app-block');
+    });
+  }
 };
 
 const toggleSettings = () => {
@@ -41,15 +51,20 @@ const changeLanguage = e => {
   ToDo();
 };
 
-const hideBlock = e => {
+const toggleBlock = e => {
   const blockName = e.target.dataset.blockName;
   const el = document.querySelector(`.${blockName}`);
   const isHide = !e.target.checked;
 
   if (isHide) {
     el.classList.add('hide-app-block');
+    OPTIONS.hiddenBlocks.push(blockName);
+    saveOptions();
   } else {
     el.classList.remove('hide-app-block');
+    const index = OPTIONS.hiddenBlocks.indexOf(blockName);
+    OPTIONS.hiddenBlocks.splice(index, 1);
+    saveOptions();
   }
 };
 
@@ -58,7 +73,7 @@ document.body.addEventListener('click', closeSettingsBlock);
 
 langSelect.addEventListener('change', changeLanguage);
 
-hideBlockInputs.forEach(el => el.addEventListener('input', hideBlock));
+hideBlockInputs.forEach(el => el.addEventListener('input', toggleBlock));
 
 export const Settings = () => {
   initSettings();
