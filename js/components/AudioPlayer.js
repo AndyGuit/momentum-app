@@ -49,10 +49,13 @@ const renderPlaylist = () => {
     playListEl.append(li);
 
     li.addEventListener('click', () => {
-      if (index !== currentTrack) audio.pause();
-      currentTrack = index;
-      audio.src = playList[currentTrack].src;
-      toggleAudio();
+      if (index === currentTrack) {
+        toggleAudio();
+      } else {
+        currentTrack = index;
+        audio.src = playList[currentTrack].src;
+        toggleAudio();
+      }
     });
   });
 };
