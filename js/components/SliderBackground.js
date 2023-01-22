@@ -12,17 +12,18 @@ let randomImg = Math.floor(Math.random() * maxImages) + 1;
 const getImgLink = async () => {
   const imgNumber = randomImg.toString().padStart(2, '0');
   const timeOfDay = translations.greeting.en[getTimeIndex()].split(' ')[1];
+  const tags = OPTIONS.picTags.join(',') || timeOfDay;
 
   if (OPTIONS.picSource === 'github') {
     return getGithubImg(imgNumber, timeOfDay);
   }
 
   if (OPTIONS.picSource === 'unsplash') {
-    return getUnsplashImg(timeOfDay);
+    return getUnsplashImg(tags);
   }
 
   if (OPTIONS.picSource === 'flickr') {
-    return getFlickrImg(imgNumber, timeOfDay);
+    return getFlickrImg(imgNumber, tags);
   }
 };
 

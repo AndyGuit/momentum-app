@@ -102,14 +102,59 @@ const changePictureSource = e => {
   setBackground();
 };
 
+const renderPicTag = tag => {
+  const liTag = `<li>${tag}<span class="close-tag">&#10005;</span></li>`;
+
+  tagList.insertAdjacentHTML('afterbegin', liTag);
+};
+
+const renderTagList = () => {
+  OPTIONS.picTags.forEach(tag => {
+    renderPicTag(tag);
+  });
+};
+
+renderTagList();
+
+const addPicTag = e => {
+  if (e.key === 'Enter') {
+    const tag = e.target.value.replace(/\s+/g, ' ');
+
+    if (tag.length && !OPTIONS.picTags.includes(tag)) {
+      if (OPTIONS.picTags.length < 4) {
+        OPTIONS.picTags.push(tag);
+        saveOptions();
+        renderPicTag(tag);
+        setBackground();
+      }
+    }
+    e.target.value = '';
+  }
+};
+
+const removePicTag = e => {
+  let tags = OPTIONS.picTags;
+  const thisTag = e.target.parentElement.textContent.slice(0, -1);
+  const index = tags.indexOf(thisTag);
+  OPTIONS.picTags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+  saveOptions();
+  e.target.parentElement.remove();
+  setBackground();
+};
+
 settingsIcon.addEventListener('click', toggleSettings);
 document.body.addEventListener('click', closeSettingsBlock);
-
 langSelect.addEventListener('change', changeLanguage);
-
 hideBlockInputs.forEach(el => el.addEventListener('input', toggleBlock));
-
 picOptions.addEventListener('change', changePictureSource);
+tagInput.addEventListener('keydown', addPicTag);
+
+tagList.addEventListener('click', function (e) {
+  if (e.target.classList.contains('close-tag')) {
+    removePicTag(e);
+  }
+});
+
 export const Settings = () => {
   initSettings();
 };

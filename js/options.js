@@ -5,6 +5,7 @@ export const OPTIONS = {
   picSource: 'github',
   hiddenBlocks: [],
   todoList: [],
+  picTags: [],
 };
 
 (function loadOptions() {
