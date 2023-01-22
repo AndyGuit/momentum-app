@@ -3,6 +3,7 @@ import { translations } from '../translations';
 
 const toggleListBtn = document.querySelector('.todo-list__icon');
 const todoBlock = document.querySelector('.todo-list__block');
+const todoBlockHeader = document.querySelector('.todo-list__block p');
 const input = document.querySelector('.todo-list__input input');
 const addTodoBtn = document.querySelector('.todo-list__input button');
 const todoList = document.querySelector('.todo-list__list');
@@ -73,6 +74,12 @@ const closeTodoBlock = e => {
   }
 };
 
+const translateTodo = () => {
+  todoAppName.textContent = translations.todo.icon[OPTIONS.lang];
+  todoBlockHeader.textContent = translations.todo.header[OPTIONS.lang];
+  input.placeholder = translations.todo.placeholder[OPTIONS.lang];
+};
+
 toggleListBtn.addEventListener('click', toggleList);
 input.addEventListener('keyup', toggleAddButton);
 todoList.addEventListener('click', deleteTodoItem);
@@ -80,6 +87,6 @@ addTodoBtn.addEventListener('click', addItemToList);
 document.body.addEventListener('click', closeTodoBlock);
 
 export const ToDo = () => {
-  todoAppName.textContent = translations.todo[OPTIONS.lang];
+  translateTodo();
   renderList();
 };

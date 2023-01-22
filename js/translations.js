@@ -32,8 +32,18 @@ export const translations = {
     ua: 'Автор невідомий',
   },
   todo: {
-    en: 'Todo',
-    ua: 'Задачі',
+    icon: {
+      en: 'Todo',
+      ua: 'Завдання',
+    },
+    header: {
+      en: 'Todo List',
+      ua: 'Список Завдань',
+    },
+    placeholder: {
+      en: 'Add your new todo',
+      ua: 'Додайте нове завдання',
+    },
   },
   settings: {
     header: {
