@@ -1,7 +1,7 @@
 import { OPTIONS } from '../options';
 import { translations } from '../translations';
 import { getTimeIndex } from '../helperFunctions';
-import { getGithubImg, getUnsplashImg } from '../apiLinks';
+import { getFlickrImg, getGithubImg, getUnsplashImg } from '../apiLinks';
 
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
@@ -22,6 +22,7 @@ const getImgLink = async () => {
   }
 
   if (OPTIONS.picSource === 'flickr') {
+    return getFlickrImg(imgNumber, timeOfDay);
   }
 };
 
