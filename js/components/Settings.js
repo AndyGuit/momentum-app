@@ -5,6 +5,7 @@ import { Greeting } from './Greeting';
 import { Weather } from './Weather';
 import { Quote } from './Quote';
 import { ToDo } from './ToDo';
+import { setBackground } from './SliderBackground';
 
 const settingsIcon = document.querySelector('.settings i');
 const settingsBlock = document.querySelector('.settings__block');
@@ -95,6 +96,12 @@ const toggleBlock = e => {
   }
 };
 
+const changePictureSource = e => {
+  OPTIONS.picSource = e.target.value;
+  saveOptions();
+  setBackground();
+};
+
 settingsIcon.addEventListener('click', toggleSettings);
 document.body.addEventListener('click', closeSettingsBlock);
 
@@ -102,6 +109,7 @@ langSelect.addEventListener('change', changeLanguage);
 
 hideBlockInputs.forEach(el => el.addEventListener('input', toggleBlock));
 
+picOptions.addEventListener('change', changePictureSource);
 export const Settings = () => {
   initSettings();
 };

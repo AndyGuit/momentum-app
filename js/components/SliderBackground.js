@@ -1,7 +1,7 @@
 import { OPTIONS } from '../options';
 import { translations } from '../translations';
 import { getTimeIndex } from '../helperFunctions';
-import { getGithubImg } from '../apiLinks';
+import { getGithubImg, getUnsplashImg } from '../apiLinks';
 
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
@@ -16,9 +16,16 @@ const getImgLink = async () => {
   if (OPTIONS.picSource === 'github') {
     return getGithubImg(imgNumber, timeOfDay);
   }
+
+  if (OPTIONS.picSource === 'unsplash') {
+    return getUnsplashImg(timeOfDay);
+  }
+
+  if (OPTIONS.picSource === 'flickr') {
+  }
 };
 
-const setBackgorund = async () => {
+export const setBackground = async () => {
   const img = new Image();
   img.src = await getImgLink();
 
@@ -30,15 +37,15 @@ const setBackgorund = async () => {
 slideNext.addEventListener('click', () => {
   randomImg >= maxImages ? (randomImg = 1) : randomImg++;
 
-  setBackgorund();
+  setBackground();
 });
 
 slidePrev.addEventListener('click', () => {
   randomImg === 1 ? (randomImg = maxImages) : randomImg--;
 
-  setBackgorund();
+  setBackground();
 });
 
 export const SliderBackground = () => {
-  setBackgorund();
+  setBackground();
 };
