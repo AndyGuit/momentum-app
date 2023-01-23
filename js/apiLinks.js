@@ -17,6 +17,8 @@ export const getFlickrImg = async (imgNum, tag) => {
   const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrKey}&tags=${tag}&tag_mode=any&extras=url_l&format=json&nojsoncallback=1`;
   const res = await fetch(url);
   const { photos } = await res.json();
+  console.log(imgNum, tag);
+  console.log(photos);
   return photos.photo[imgNum].url_l;
 };
 

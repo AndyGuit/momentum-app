@@ -23,7 +23,7 @@ const getImgLink = async () => {
   }
 
   if (OPTIONS.picSource === 'flickr') {
-    return getFlickrImg(imgNumber, tags);
+    return getFlickrImg(randomImg, tags);
   }
 };
 
