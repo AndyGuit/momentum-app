@@ -1,3 +1,5 @@
+import '../assets/img/bg.jpg';
+
 import { TimeAndDate } from './components/TimeAndDate';
 import { Greeting } from './components/Greeting';
 import { SliderBackground } from './components/SliderBackground';
